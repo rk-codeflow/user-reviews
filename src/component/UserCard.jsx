@@ -8,16 +8,16 @@ function UserCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const showPrev = () => {
-    setCurrentIndex((prev) => prev - 1);
+    setCurrentIndex((prev) => (prev === 0 ? userData.length - 1 : prev - 1));
   };
 
   const showNext = () => {
-    setCurrentIndex((next) => next + 1);
+    setCurrentIndex((next) => (next === userData.length - 1 ? 0 : next + 1));
   };
 
   const surpriseBtn = () => {
     const surpriseValue = Math.floor(Math.random() * userData.length);
-    setCurrentIndex(currentIndex[surpriseValue]);
+    setCurrentIndex(surpriseValue);
     console.log(surpriseValue);
   };
 
